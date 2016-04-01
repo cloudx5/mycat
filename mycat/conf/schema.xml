@@ -2,7 +2,7 @@
 <!DOCTYPE mycat:schema SYSTEM "schema.dtd">
 <mycat:schema xmlns:mycat="http://org.opencloudb/">
 
-	<schema name="X5AppDB" checkSQLschema="false" sqlMaxLimit="100" dataNode="">
+	<schema name="X5AppDB" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn6,dn8">
 		<!-- auto sharding by id (long)
 		<table name="travelrecord" dataNode="dn1,dn2,dn3" rule="auto-sharding-long" /> -->
 
@@ -33,11 +33,10 @@
 	<!-- 
 	<dataNode name="dn1$0-743" dataHost="node1" database="db$0-743"/> -->
 
-	<dataNode name="dn1" dataHost="node1" database="x5"/>
-
+	<dataNode name="dn6" dataHost="node6" database="x5"/>
 	<!-- 
-	<dataNode name="dn2" dataHost="node1" database="db2"/>
-	<dataNode name="dn3" dataHost="node1" database="db3"/> -->
+	<dataNode name="dn7" dataHost="node7" database="x5"/> -->
+	<dataNode name="dn8" dataHost="node8" database="x5"/>
 
 	<!-- 
 	<dataNode name="dn4" dataHost="sequoiadb1" database="SAMPLE" />
@@ -45,9 +44,9 @@
 	<dataNode name="jdbc_dn2" dataHost="jdbchost" database="db2" />
 	<dataNode name="jdbc_dn3" dataHost="jdbchost" database="db3" /> -->
 
-	<dataHost name="node1" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+	<dataHost name="node6" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user()</heartbeat>
-		<writeHost host="hostM1" url="localhost:3316" user="root" password="x5"/>
+		<writeHost host="hostM1" url="192.168.1.6:31613" user="root" password="x5"/>
 
 		<!-- 
 		<writeHost host="hostS1" url="localhost:3316" user="root" password="x5" /> -->
@@ -57,6 +56,17 @@
 			can have multi read hosts
 			<readHost host="hostS2" url="localhost:3306" user="root" password="x5" />
 		</writeHost> -->
+	</dataHost>
+
+	<!-- 
+	<dataHost name="node7" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM1" url="192.168.1.7:3316" user="root" password="x5"/>
+	</dataHost> -->
+
+	<dataHost name="node8" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM1" url="192.168.1.8:31459" user="root" password="x5"/>
 	</dataHost>
 
 	<!--
