@@ -8,6 +8,7 @@ WORKDIR /usr/local
 ADD Java_1.7.0_60.tar.gz /usr/local/
 ADD Mycat-server-1.5.1.tar.gz /usr/local/
 
+COPY mycat/bin/startup_nowrap.sh /usr/local/bin/startup_nowrap.sh
 COPY mycat/conf/* /usr/local/conf/
 COPY mycat/startup.sh /usr/local/startup.sh
 
