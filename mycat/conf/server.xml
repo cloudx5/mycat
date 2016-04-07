@@ -44,7 +44,7 @@
 
 	<user name="root">
 		<property name="password">x5</property>
-		<property name="schemas">X5AppDB</property>
+		<property name="schemas">X5AppDB01,X5AppDB02</property>
 	</user>
 
 	<!--
